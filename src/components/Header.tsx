@@ -17,7 +17,7 @@ const Header: React.FC<HeaderProps> = ({ onNewChat }) => {
 
       <button
         onClick={onNewChat}
-        className="flex items-center gap-2 py-1.5 px-3 rounded-md bg-orange-500 hover:bg-accent/80 text-white transition-colors"
+        className="flex items-center gap-2 py-1.5 px-3 rounded-md bg-orange-500 hover:bg-orange-600 text-white transition-colors"
       >
         <PlusCircle size={16} />
         <span className="text-sm">New Chat</span>
