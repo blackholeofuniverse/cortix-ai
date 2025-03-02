@@ -9,6 +9,8 @@ import { generateResponse } from './utils/gemini';
 import { Bot } from 'lucide-react';
 import { Analytics } from '@vercel/analytics/react';
 
+const GithubURL = 'https://github.com/blackholeofuniverse'
+
 function App() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -94,11 +96,12 @@ function App() {
           <div className="h-full flex flex-col items-center justify-center p-4 text-center">
             <Bot className='w-14 h-14' />
             <h2 className="text-2xl font-bold text-light-100 mb-2 selection:bg-orange-500">Oh, it's you!😏</h2>
-            <div className="h-6 mb-6 overflow-hidden">
+            <div className="h-6 mb-6 max-md:mb-0 overflow-hidden">
               <p key={typewriterKey} className="text-orange-500 max-w-xl typewriter max-md:text-xs selection:bg-orange-500 selection:text-white">
                 Powered by AI, fueled by sarcasm. Ask away—if you dare😏
               </p>
             </div>
+            <a href={GithubURL} className='text-sm mb-4 lg:hidden md:hidden' target='_blank'>Made by Samrat🤍</a>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3 max-w-2xl">
               {suggestions.map((suggestion, index) => (
                 <button
@@ -120,11 +123,13 @@ function App() {
             <div ref={messagesEndRef} />
           </div>
         )}
+
       </main>
 
       <div className="absolute bottom-0 left-0 right-0">
         <ChatInput onSendMessage={handleSendMessage} isLoading={isLoading} />
       </div>
+      <a href={GithubURL} className='text-white absolute bottom-4 right-4 hover:-translate-y-[2px] transition-all duration-200 ease-in-out max-md:hidden' target='_blank'>Made by Samrat🤍</a>
       <Analytics />
     </div>
   );
