@@ -7,6 +7,7 @@ import Header from './components/Header';
 import { Message } from './types';
 import { generateResponse } from './utils/gemini';
 import { Bot } from 'lucide-react';
+import { Analytics } from '@vercel/analytics/react';
 
 function App() {
   const [messages, setMessages] = useState<Message[]>([]);
@@ -124,6 +125,7 @@ function App() {
       <div className="absolute bottom-0 left-0 right-0">
         <ChatInput onSendMessage={handleSendMessage} isLoading={isLoading} />
       </div>
+      <Analytics />
     </div>
   );
 }
