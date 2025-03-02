@@ -1,0 +1,141 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #111827; /* dark-200 */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #FF6500; /* accent */
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #FF6500; /* darker accent */
+}
+
+/* Firefox scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #FF6500 #111827;
+}
+
+/* Add custom styles for markdown content */
+.markdown-content p {
+  @apply mb-4;
+}
+
+.markdown-content ul {
+  @apply list-disc pl-6 mb-4 space-y-2;
+}
+
+.markdown-content ol {
+  @apply list-decimal pl-6 mb-4 space-y-2;
+}
+
+.markdown-content li {
+  @apply mb-1;
+}
+
+.markdown-content h1, 
+.markdown-content h2, 
+.markdown-content h3, 
+.markdown-content h4 {
+  @apply font-bold mt-6 mb-4;
+}
+
+.markdown-content h1 {
+  @apply text-2xl;
+}
+
+.markdown-content h2 {
+  @apply text-xl;
+}
+
+.markdown-content h3 {
+  @apply text-lg;
+}
+
+.markdown-content blockquote {
+  @apply border-l-4 border-accent pl-4 italic my-4 text-light-300;
+}
+
+.markdown-content pre {
+  @apply bg-dark-100 rounded-md my-4 p-4 overflow-x-auto;
+}
+
+.markdown-content code:not(pre code) {
+  @apply bg-dark-100 text-light-100 px-1.5 py-0.5 rounded text-sm;
+}
+
+.markdown-content a {
+  @apply text-accent hover:underline;
+}
+
+.markdown-content hr {
+  @apply my-6 border-dark-100;
+}
+
+/* Animation for the loading skeleton */
+@keyframes pulse-slow {
+  0%, 100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Typewriter animation */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink {
+  50% { border-color: transparent }
+}
+
+.typewriter {
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 3px solid;
+  width: 0;
+  animation: 
+    typing 3.5s steps(40, end) forwards,
+    blink .75s step-end infinite;
+}
+
+.typewriter-restart {
+  animation: 
+    typing 3.5s steps(40, end) forwards,
+    blink .75s step-end infinite;
+  animation-delay: 2s;
+}
+
+/* Fade in animation for suggestion cards */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
