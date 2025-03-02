@@ -32,7 +32,7 @@ const ChatMessage: React.FC<ChatMessageProps> = ({ message }) => {
             <ReactMarkdown 
               remarkPlugins={[remarkGfm]}
               rehypePlugins={[rehypeHighlight]}
-              className="text-light-100 leading-relaxed"
+              className="text-light-100 leading-relaxed selection:bg-orange-500"
               components={{
                 p: ({ node, ...props }) => <p className="mb-4" {...props} />,
                 ul: ({ node, ...props }) => <ul className="list-disc pl-6 mb-4 space-y-2" {...props} />,

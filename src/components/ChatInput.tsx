@@ -43,7 +43,7 @@ const ChatInput: React.FC<ChatInputProps> = ({ onSendMessage, isLoading }) => {
             onChange={(e) => setMessage(e.target.value)}
             onKeyDown={handleKeyDown}
             placeholder="Message Cortix..."
-            className="w-full p-4 pr-12 rounded-lg bg-primary text-light-100 placeholder-light-500 border border-dark-100   resize-none overflow-hidden max-h-[200px] flex outline-none"
+            className="w-full p-4 pr-12 rounded-lg bg-primary text-light-100 placeholder-light-500 border border-dark-100   resize-none overflow-hidden max-h-[200px] flex outline-none selection:bg-orange-500"
             rows={1}
             disabled={isLoading}
           />

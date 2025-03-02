@@ -92,10 +92,10 @@ function App() {
         {messages.length === 0 ? (
           <div className="h-full flex flex-col items-center justify-center p-4 text-center">
             <Bot className='w-14 h-14' />
-            <h2 className="text-2xl font-bold text-light-100 mb-2">Welcome to Cortix</h2>
+            <h2 className="text-2xl font-bold text-light-100 mb-2 selection:bg-orange-500">Welcome to Cortix</h2>
             <div className="h-6 mb-6 overflow-hidden">
-              <p key={typewriterKey} className="text-orange-500 max-w-xl typewriter max-md:text-xs">
-              Powered by AI, fueled by sarcasm. Ask away—if you dare😏
+              <p key={typewriterKey} className="text-orange-500 max-w-xl typewriter max-md:text-xs selection:bg-orange-500 selection:text-white">
+                Powered by AI, fueled by sarcasm. Ask away—if you dare😏
               </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3 max-w-2xl">
@@ -103,7 +103,7 @@ function App() {
                 <button
                   key={index}
                   onClick={() => handleSendMessage(suggestion)}
-                  className={`p-3 text-left rounded-lg border border-dark-100 hover:bg-[#030712] transition-colors fade-in delay-${(index + 1) * 100}`}
+                  className={`p-3 text-left rounded-lg border border-dark-100 selection:bg-orange-500 hover:bg-[#030712] transition-colors fade-in delay-${(index + 1) * 100}`}
                 >
                   {suggestion}
                 </button>
