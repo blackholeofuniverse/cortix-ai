@@ -4,6 +4,7 @@ import ChatMessage from './components/ChatMessage';
 import ChatInput from './components/ChatInput';
 import ChatSkeleton from './components/ChatSkeleton';
 import Header from './components/Header';
+import RecaptchaVerification from './components/RecaptchaVerification';
 import { Message } from './types';
 import { generateResponse } from './utils/gemini';
 import { Bot } from 'lucide-react';
@@ -15,6 +16,7 @@ function App() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [typewriterKey, setTypewriterKey] = useState<number>(0);
+  const [isVerified, setIsVerified] = useState<boolean>(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   const scrollToBottom = () => {
@@ -86,6 +88,11 @@ function App() {
     "Write a short story about a robot learning emotions… great, now I have to deal with robot drama.",
     "Plan me a 7-day trip to Japan (Because clearly, I moonlight as a travel agent.)"
   ];
+
+  // If not verified, show the reCAPTCHA verification screen
+  if (!isVerified) {
+    return <RecaptchaVerification onVerify={() => setIsVerified(true)} />;
+  }
 
   return (
     <div className="flex flex-col h-screen bg-dark-300 text-light-100">
